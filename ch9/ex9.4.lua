@@ -40,12 +40,15 @@ function moonphase(day)
     error("day must be between 1 - 28")
   end
   local shift = (day - 14)/7
-  io.output(tostring(day)..".bpm")
+  local filename = "day"..tostring(day)..".bpm"
+  io.output(filename)
   plot(difference(full, translate(full, -shift, 0)), 500, 500)
+  return filename
 end
 
 -- plot moon phases for all days of the lunar month
 for day = 1, 28 do
-  moonphase(day)
+  local filename = moonphase(day)
+  print("generated bitmap file:" .. filename)
 end
 

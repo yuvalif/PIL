@@ -12,32 +12,46 @@ function integral(f, dx)
   end
 end
 
-print("sin(x)")
+function print_results(a, b, c)
+  print(string.format("%.4f", a).."\t"..
+  string.format("%.4f", b).."\t"..
+  string.format("%.4f", c))
+ end
+
+
+print("Integral{sin(x)/dx}")
+print("x\tactual\testimated")
 local estimatedF = integral(math.sin)
 -- I(sin(x)) = -cos(x)
 local actualF = function (x) return -math.cos(x) end
 local x = math.pi/3
-print(x, actualF(x), estimatedF(x))
+print_results(x, actualF(x), estimatedF(x))
 x = math.pi/4
-print(x, actualF(x), estimatedF(x))
+print_results(x, actualF(x), estimatedF(x))
 x = math.pi/6
-print(x, actualF(x), estimatedF(x))
+print_results(x, actualF(x), estimatedF(x))
 
-print("cos(x)")
+print("Integral{cos(x)/dx}")
+print("x", "actual", "estimated")
 estimatedF = integral(math.cos)
 -- I(cos(x)) = sin(x)
 actualF = math.sin
 x = math.pi/3
-print(x, actualF(x), estimatedF(x))
+print_results(x, actualF(x), estimatedF(x))
 x = math.pi/4
-print(x, actualF(x), estimatedF(x))
+print_results(x, actualF(x), estimatedF(x))
 x = math.pi/6
-print(x, actualF(x), estimatedF(x))
+print_results(x, actualF(x), estimatedF(x))
 
-print("x^2")
+print("Integral{x^2/dx}")
+print("x", "actual", "estimated")
 estimatedF = integral(function(x) return x^2 end)
 -- I(x^2) = x^3/3
 actualF = function (x) return x^3/3 end
+x = 1
+print_results(x, actualF(x), estimatedF(x))
 x = 2
-print(x, actualF(x), estimatedF(x))
+print_results(x, actualF(x), estimatedF(x))
+x = 3
+print_results(x, actualF(x), estimatedF(x))
 

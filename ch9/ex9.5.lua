@@ -29,7 +29,9 @@ end
 
 local N = 8
 for i = 0, N-1 do
-  io.output("rect"..tostring(i)..".bpm")
+  local filename = "rect"..tostring(i)..".bpm"
+  io.output(filename)
   plot(rotate(rect(0, 1, 0, 1), i*2*math.pi/N), 500, 500)
+  print("generated bitmap file: "..filename)
 end
 
